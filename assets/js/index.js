@@ -34,7 +34,7 @@ function calculaImc(peso, altura) {
 function setResultado(msg, ehValido = true) {
 	const resultado = document.querySelector('#resultado');
 	resultado.innerHTML = '';
-	console.log(msg);
+
 	const p = criaElemento('p');
 	p.innerHTML = msg;
 
@@ -42,34 +42,35 @@ function setResultado(msg, ehValido = true) {
 }
 
 function classificaImc(imc) {
-	console.log(imc);
 	const classificacao = [
-		'Abaixo do peso',
-		'Peso normal',
-		'Excesso de peso',
-		'Obesidade classe 1',
-		'Obesidade classe 2',
-		'Obesidade classe 3',
+		'Abaixo do Peso',
+		'Peso Normal',
+		'Excesso de Peso',
+		'Obesidade Classe 1',
+		'Obesidade Classe 2',
+		'Obesidade Classe 3',
 	];
+
+	const mensagem = `Seu IMC é ${imc}, classificado como`;
 
 	switch (true) {
 		case imc <= 18.5:
-			setResultado(classificacao[0]);
+			setResultado(`${mensagem} ${classificacao[0]}`);
 			break;
-		case imc > 18.5 && imc <= 24.99:
-			setResultado(classificacao[1]);
+		case imc >= 18.5 && imc <= 24.99:
+			setResultado(`${mensagem} ${classificacao[1]}`);
 			break;
-		case imc > 25.0 && imc <= 29.99:
-			setResultado(classificacao[2]);
+		case imc >= 25.0 && imc <= 29.99:
+			setResultado(`${mensagem} ${classificacao[2]}`);
 			break;
-		case imc > 30.0 && imc <= 34.99:
-			setResultado(classificacao[3]);
+		case imc >= 30.0 && imc <= 34.99:
+			setResultado(`${mensagem} ${classificacao[3]}`);
 			break;
-		case imc > 35.0 && imc <= 39.99:
-			setResultado(classificacao[4]);
+		case imc >= 35.0 && imc <= 39.99:
+			setResultado(`${mensagem} ${classificacao[4]}`);
 			break;
 		case imc >= 40.0:
-			setResultado(classificacao[5]);
+			setResultado(`${mensagem} ${classificacao[5]}`);
 			break;
 	}
 }
