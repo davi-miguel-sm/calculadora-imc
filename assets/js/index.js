@@ -31,11 +31,13 @@ function calculaImc(peso, altura) {
 	return (peso / altura ** 2).toFixed(2);
 }
 
-function setResultado(msg, ehValido = true) {
+function setResultado(msg, valido = true) {
 	const resultado = document.querySelector('#resultado');
 	resultado.innerHTML = '';
 
 	const p = criaElemento('p');
+	valido ? p.classList.add('resultado-correto') : p.classList.add('resultado-incorreto');
+
 	p.innerHTML = msg;
 
 	resultado.appendChild(p);
